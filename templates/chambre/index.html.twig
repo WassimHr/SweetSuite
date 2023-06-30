@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambres
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center m-5">NOS CHAMBRES</h1>
+
+	<div class="container-fluid">
+		{% for item in chambres %}
+			<div class="text-center">
+				<div class="d-flex flex-column">
+					<h2 class="text-light">{{item.titre}}
+						:
+					</h2>
+					<p class="mt-2 me-5">
+						{{item.descriptionCourte}}</p>
+				</div>
+
+
+				<div class="d-flex col-12 mt-5 ms-5">
+					<img class="p-3" src="{{ asset('images/chambre/' ~ item.photo )}}" alt="Photo" width="600">
+					<div class="d-flex flex-column mt-5">
+						<h3 class="text-light">Description</h3>
+						<p class="col-6 mx-auto mt-3 mb-3">{{item.descriptionLongue | striptags }}</p>
+						<a class="btn btn-primary col-1 m-auto mt-5" href="{{path('show', {id: item.id}) }}">Voir plus</a>
+					</div>
+				</div>
+			</div>
+			<hr class="border border-primary border-3 opacity-50 m-5">
+
+
+		{% endfor %}
+	</div>
+{% endblock %}

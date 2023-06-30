@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{# {{ form_start(form) }}
+		    	{{ form_end(form) }} #}
+	<div class="container m-auto">
+		<div class="m-5">
+			<h1 class="text-center">Formulaire de reservation</h1>
+			{{form_start(form)}}
+			{{form_row(form.date_depart, {
+                    label: "Date de depart : "
+                })}}
+			{{form_row(form.date_arrivee, {
+                    label: "Date d'arrivée : "
+                })}}
+			{{form_row(form.nom, {
+                    label: "Nom : "
+                })}}
+			{{form_row(form.prenom, {
+                    label: "Prenom : "
+                })}}
+			{{form_row(form.telephone, {
+                    label: "Telephone : "
+                })}}
+			{{form_row(form.email, {
+                    label: "Email : "
+                })}}
+			<div class="text-center">
+				<button class="btn btn-primary m-5" type="submit">
+					Reserver
+				</button>
+			</div>
+			{{form_end(form)}}
+		</div>
+	</div>
+
+
+{% endblock %}

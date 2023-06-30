@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container-fluid">
+		<div class="text-center">
+			<div class="d-flex flex-column">
+				<h1 class="text-light m-5">{{chambre.titre}}</h1>
+				<p class="mt-2 me-5">
+					{{chambre.descriptionCourte}}</p>
+			</div>
+			<div class="d-flex col-12 mt-5 ms-5">
+				<img class="p-3" src="{{ asset('images/chambre/' ~ chambre.photo )}}" alt="Photo" width="600">
+				<div class="d-flex flex-column mt-5">
+					<h3 class="text-light">Description</h3>
+					<p class="col-6 mx-auto mt-3 mb-3">{{chambre.descriptionLongue | striptags }}</p>
+					<a class="btn btn-primary col-1 m-auto mt-5" href="{{path('formCommande', {id: chambre.id})}}">Reservez</a>
+				</div>
+			</div>
+		</div>
+		<hr class="border border-primary border-3 opacity-50 m-5">
+	</div>
+{% endblock %}

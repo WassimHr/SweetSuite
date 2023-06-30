@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commentaires
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center m-5">Les Avis</h1>
+	<div class="container">
+		<div class="col-12 d-flex flex-wrap">
+			{% for item in comment %}
+				<div class="card m-auto mt-3" style="width: 50rem;">
+					<div class="card-body">
+						<div class="d-flex justify-content-between m-3">
+							<h5 class="card-title">Categorie :
+								{{item.categorie}}</h5>
+							<h6 class="card-subtitle mb-2 text-body-secondary">{{ item.dateEnregistrement|date("d/m/Y à H:i:s") }}</h6>
+						</div>
+						<div class="d-flex justify-content-between">
+							<h6 class="card-subtitle mb-2 text-body-secondary">{{item.auteur}}
+								:
+								{{item.commentaire}}</h6>
+							<h6 class="card-subtitle mb-2 text-body-secondary">note : {{item.note}} /5</h6>
+                            
+						</div>
+
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+        <div class="text-center">
+        <a class="btn btn-secondary m-5" href="{{path('commentaireAdd')}}">Laissez nous un commentaire</a>
+        
+        </div>
+  
+	</div>
+{% endblock %}

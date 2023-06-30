@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambre
+{% endblock %}
+
+{% block body %}
+
+
+
+ 		{# {% for slider in sliders %}
+            <div class="carousel-item {% if slider.ordre == 1 %} active {% endif %}">
+                <img style="width: 100vw; height: 80vh;" class="d-block w-100" src="{{ asset('images/sliders/' ~ slider.photo) }}" alt="Slide">
+            </div>
+        {% endfor %} #}
+	<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+ {% for slider in sliders %}
+            <div class="carousel-item {% if slider.ordre == 1 %} active {% endif %}">
+                <img style="width: 100vw; height: 80vh;" class="d-block w-100" src="{{ asset('images/sliders/' ~ slider.photo) }}" alt="Slide">
+            </div>
+    {% endfor %} 
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+	<div class="text-center m-5 p-5">
+		<hr class="border border-primary border-3 opacity-50">
+		<h1 class="text-center m-5 text-light">Qui sommes-nous ?</h1>
+		<p class="m-5">
+			Bienvenue à Sweet Suite, un hôtel de luxe situé au cœur des Caraïbes. Découvrez le parfait équilibre entre confort et raffinement pour des vacances inoubliables. Nos suites luxueuses, décorées avec élégance dans un style contemporain, vous offrent un espace spacieux et intime. Notre équipe dévouée est à votre service pour vous garantir un séjour exceptionnel. Profitez de notre piscine à débordement avec vue sur la mer des Caraïbes, détendez-vous dans notre spa exclusif et délectez-vous de délicieux mets dans notre restaurant gastronomique. Que vous recherchiez la détente, l'aventure ou la découverte des merveilles des Caraïbes, Sweet Suite est l'endroit idéal pour réaliser vos rêves.</p>
+		<hr class="border border-primary border-3 opacity-50">
+	</div>
+
+
+	<h1 class="text-center m-5 text-light">Nos services</h1>
+	<div class="container d-flex justify-content-between text-center mt-3">
+
+		<div class="card p-3 mt-5 mb-5" style="width: 18rem;">
+			<h5 class="card-title pb-4 text-light mt-2">SPA</h5>
+			<img src="{{asset('assets/accueil/spa_accueil.jpg')}}" style="width: 150px; height:150px;" class="card-img-top rounded-circle m-auto" alt="Image">
+			<div class="card-body">
+
+				<p class="card-text pb-3">Découvrez une oasis de détente et de bien-être au sein de notre hôtel. Notre luxueux spa vous offre une échappée paisible de l'agitation quotidienne.</p>
+				<a href="#" class="btn btn-primary mt-3">Voir plus</a>
+			</div>
+		</div>
+
+		<div class="card p-3 mt-5 mb-5" style="width: 18rem;">
+			<h5 class="card-title pb-4 text-light mt-2">RESTAURANT</h5>
+			<img src="{{asset('assets/accueil/resto_accueil.jpg')}}" style="width: 150px; height:150px;" class="card-img-top rounded-circle m-auto" alt="Image">
+			<div class="card-body">
+
+				<p class="card-text pb-3">Découvrez une cuisine exquise et raffinée dans notre restaurant, où chaque plat est préparé avec passion pour éveiller vos papilles.</p>
+				<a href="#" class="btn btn-primary mt-3">Voir plus</a>
+			</div>
+		</div>
+
+		<div class="card p-3 mt-5 mb-5" style="width: 18rem;">
+			<h5 class="card-title pb-4 mb-3 mt-2 text-light">CHAMBRES</h5>
+			<img src="{{asset('assets/accueil/room_accueil.jpg')}}" style="width: 150px; height:150px;" class="card-img-top rounded-circle m-auto" alt="Image">
+			<div class="card-body">
+
+				<p class="card-text pb-3">Offrez-vous le confort et dans nos chambres luxueuses, où vous pourrez vous détendre et profiter d'une nuit de sommeil paisible et réparatrice.</p>
+				<a href="{{path('chambre')}}" class="btn btn-primary mt-2">Voir plus</a>
+			</div>
+		</div>
+
+	</div>
+	<hr style="width:90%;" class="border border-primary border-3 opacity-50 mt-5 mb-5">
+
+	<div class="text-center my-5">
+		<h1 class="text-light text-center mb-5 mt-5">Plan d'accès</h1>
+		<iframe class="carte" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5610.448081237521!2d2.409609623820435!3d48.859415268708496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ddba8748817%3A0x68c3d9daf1136409!2sDORANCO%20%C3%89cole%20Sup&#39;%20des%20Tech%20Cr%C3%A9atives%20%7C%20CAMPUS%20PARIS%20GALLIENI!5e0!3m2!1sfr!2sfr!4v1687783925483!5m2!1sfr!2sfr" width="1000" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
+
+</div>{% endblock %}
