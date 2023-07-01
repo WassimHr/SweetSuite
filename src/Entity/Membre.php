@@ -32,11 +32,13 @@ class Membre
     #[ORM\Column(length: 255)]
     private ?string $civilite = null;
 
-    #[ORM\Column]
-    private ?int $statut = null;
+   
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_enregistrement = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $statut = null;
 
     public function getId(): ?int
     {
@@ -115,17 +117,7 @@ class Membre
         return $this;
     }
 
-    public function getStatut(): ?int
-    {
-        return $this->statut;
-    }
-
-    public function setStatut(int $statut): static
-    {
-        $this->statut = $statut;
-
-        return $this;
-    }
+  
 
     public function getDateEnregistrement(): ?\DateTimeInterface
     {
@@ -135,6 +127,18 @@ class Membre
     public function setDateEnregistrement(\DateTimeInterface $date_enregistrement): static
     {
         $this->date_enregistrement = $date_enregistrement;
+
+        return $this;
+    }
+
+    public function getStatut(): ?string
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(string $statut): static
+    {
+        $this->statut = $statut;
 
         return $this;
     }

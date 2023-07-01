@@ -28,7 +28,7 @@ class MembreCrudController extends AbstractCrudController
             TextField::new('pseudo', 'pseudo'),
             TextField::new('mdp', 'mot de passe')->setFormType(PasswordType::class)->onlyWhenCreating(), 
             TextField::new('civilite', 'civilite'),
-            IntegerField::new('statut', 'statut'),
+            TextField::new('statut', 'statut'),
             DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y à H:M')->hideOnForm(),
 
         ];
